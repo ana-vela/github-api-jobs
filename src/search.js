@@ -1,21 +1,42 @@
+/* eslint-disable array-callback-return */
+import axios from 'axios'
+import React, { Component } from 'react';
 
-import React, {useState, useEffect} from 'react';
 
-export default function Search() {
-  const [data, setData] = useState(null);
+const api = axios.create({
+  baseURL: `/positions.json`
+})
+class Search extends Component {
 
-  useEffect(() => {
-    fetch(`/positions.json`)
-    .then((response) => response.json())
-    .then(setData);
-  }, []);
-  
-  if (data) {
-    return <div>{JSON.stringify(data)}</div>;
-  }
+state = {
+  jobs: []
+}
+
+constructor() {
+  super();
+  api.get(`/`).then(res => {
+    console.log(res.data)
+    this.setState({jobs: res.data});
+  })
+}
+
+
+render() {
   return (
-    <div>
-      no data available;
-    </div>
+<div>
+{this.state.jobs.map(job => <h2 key={job.id}>{job.company}</h2>)}
+
+
+</div>
+
+
   )
 }
+ 
+ 
+}
+
+
+
+
+export default Search;

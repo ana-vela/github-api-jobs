@@ -6,7 +6,7 @@ function App() {
     <div className="App">
       <header className="App-header">
      <h1>GitHub Jobs API App </h1>
-      <Search />
+     <Search />
       </header>
     </div>
   );
