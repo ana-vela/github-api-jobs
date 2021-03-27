@@ -1,7 +1,24 @@
 .App {
   text-align: center;
+  background-color: #edf8ff;
 }
 
+.card {
+display: flex;
+/* max-width: 600px; */
+max-height: 300px;
+line-height: .5;
+overflow: scroll;
+flex-direction: column;
+flex-wrap: wrap;
+text-align: left;
+padding: 50px;
+margin: 50px;
+border: 1px solid blue;
+background-color: #ffffff;
+border-radius: 10px;
+/* max-height: 400px; */
+}
 
 
 

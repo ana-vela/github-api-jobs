@@ -23,9 +23,24 @@ export default function Search() {
     // eslint-disable-next-line no-unused-vars
     itemsToRender = Object.values(data).map((data, index) => {
       return (
-        <div key={index}>
-          <h1>{data.company}</h1>
-          <div dangerouslySetInnerHTML={{ __html: data.description }} />;
+        <div className="card" key={index}>
+        {data.company_logo
+          ? <img src={data.company_logo} alt="logo" style={{width: '100px'}} />
+          : <p></p>
+        }
+
+
+        <h2 style={{color: '#413c69'}}>{data.title}</h2>
+          <h2 style={{color: '#4a47a3', textAlign:'left'}}>{data.company}</h2>
+ 
+          <p style={{fontWeight: 'bold', color: 'gray'}}>{data.location}</p>
+          <p style={{fontWeight: 'bold'}}>{data.type}</p>
+          <p>{data.created_at}</p>
+
+
+        <div dangerouslySetInnerHTML={{ __html: data.how_to_apply }} />
+
+          {/* <div dangerouslySetInnerHTML={{ __html: data.description }} /> */}
         </div>
       );
     });
@@ -34,6 +49,7 @@ export default function Search() {
   return (
   
   <div>
+  <form>
   <input 
   type="text"
   value={query}
@@ -42,6 +58,7 @@ export default function Search() {
   <button className="button" type="submit">
               Search
             </button>
+            </form>
   
   
   {itemsToRender}</div>

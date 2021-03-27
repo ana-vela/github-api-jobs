@@ -1,11 +1,12 @@
 import './App.css';
-import Search from './search';
+import Search from './Search';
+import Header from './Header'
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-     <h1>GitHub Jobs API App </h1>
+     <Header />
      <Search />
       </header>
     </div>
