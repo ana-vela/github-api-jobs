@@ -2,7 +2,7 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
 
-export default function Search() {
+function Search() {
   const [data, setData] = useState({hits: []});
   const [query, setQuery] = useState('');
 
@@ -64,3 +64,6 @@ export default function Search() {
   {itemsToRender}</div>
 );
 }
+
+
+export default Search;
